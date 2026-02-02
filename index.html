@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Papus • El Squad Más Toxico de Roblox xd</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <style>
+        :root {
+            --primary: #00d4ff;
+            --dark: #0a1a2e;
+            --light: #c0e8ff;
+            --card-bg: rgba(17, 34, 64, 0.6);
+            --border: rgba(0, 212, 255, 0.3);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--dark);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .scroll-up-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            z-index: 99;
+            transition: 0.3s;
+            box-shadow: 0 0 15px rgba(0,212,255,0.5);
+        }
+        .scroll-up-btn.show { display: block; }
+        .navbar {
+            position: fixed;
+            width: 100%;
+            padding: 20px 0;
+            background: rgba(10, 26, 46, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 999;
+            transition: 0.3s;
+            border-bottom: 1px solid var(--border);
+        }
+        .navbar.sticky { padding: 10px 0; background: rgba(5, 15, 30, 0.95); }
+        .max-width { max-width: 1300px; margin: auto; padding: 0 80px; }
+        .navbar .logo a { color: white; font-size: 35px; font-weight: 600; }
+        .navbar .logo a span { color: var(--primary); text-shadow: 0 0 10px var(--primary); }
+        .navbar .menu li { list-style: none; display: inline-block; margin: 0 20px; }
+        .navbar .menu li a { color: white; font-size: 18px; font-weight: 500; transition: 0.3s; }
+        .navbar .menu li a:hover { color: var(--primary); text-shadow: 0 0 8px var(--primary); }
+        .menu-btn { color: white; font-size: 23px; cursor: pointer; display: none; }
+        .home { min-height: 100vh; display: flex; align-items: center; }
+        .home .home-content .text-1 { font-size: 27px; color: #66ccff; }
+        .home .home-content .text-2 { font-size: 75px; font-weight: 600; margin: 10px 0; color: var(--primary); }
+        .home .home-content .text-3 { font-size: 40px; margin: 5px 0; }
+        .home .home-content .text-3 span { color: var(--primary); font-weight: 500; }
+        .features { padding: 100px 0; }
+        .title {
+            text-align: center;
+            font-size: 40px;
+            font-weight: 600;
+            margin-bottom: 60px;
+            position: relative;
+            color: var(--primary);
+        }
+        .title::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            width: 180px;
+            height: 3px;
+            background: var(--primary);
+            transform: translateX(-50%);
+            box-shadow: 0 0 10px var(--primary);
+        }
+        .features .features-content { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+        .features .card {
+            background: var(--card-bg);
+            width: 320px;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            transition: 0.3s;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(5px);
+        }
+        .features .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0,212,255,0.3);
+            border-color: var(--primary);
+        }
+        .features .card i { font-size: 50px; color: var(--primary); margin-bottom: 20px; text-shadow: 0 0 10px var(--primary); }
+        .features .card .text { font-size: 22px; font-weight: 600; margin-bottom: 15px; color: var(--light); }
+        .rules .rule {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid var(--primary);
+            backdrop-filter: blur(5px);
+        }
+        footer {
+            background: #001122;
+            padding: 20px 0;
+            text-align: center;
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+        }
+        @media (max-width: 991px) {
+            .max-width { padding: 0 50px; }
+            .menu-btn { display: block; z-index: 999; }
+            .navbar .menu { position: fixed; height: 100vh; width: 100%; left: -100%; top: 0; background: #0a1a2e; text-align: center; padding-top: 80px; transition: 0.3s; }
+            .navbar .menu.active { left: 0; }
+            .navbar .menu li { display: block; margin: 30px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <div class="scroll-up-btn"><i class="fas fa-angle-up"></i></div>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#home">LOS<span>PAPUS</span></a></div>
+            <ul class="menu">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#memes">Memes</a></li>
+                <li><a href="#reglas">Reglas</a></li>
+            </ul>
+            <div class="menu-btn"><i class="fas fa-bars"></i></div>
+        </div>
+    </nav>
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+                <div class="text-1">solo pa los papus</div>
+                <div class="text-2">LOS PAPUS</div>
+                <div class="text-3">el squad que se emputa resto <span class="typing"></span></div>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="nosotros">
+        <div class="max-width">
+            <h1 class="title">quienes somos xd</h1>
+            <div class="features-content">
+                <div class="card" data-aos="fade-up">
+                    <i class="fas fa-skull"></i>
+                    <div class="text">Jero</div>
+                    <p>el que toxiquea porque le ganan por todo xd</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-keyboard"></i>
+                    <div class="text">Gabriel</div>
+                    <p>el mas spamer y toxico en juegos de combate :,vvv</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-heart-broken"></i>
+                    <div class="text">Juan Alejandro</div>
+                    <p>el femboy gotico cachon xd</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-smile"></i>
+                    <div class="text">Sami</div>
+                    <p>el mas amable del grupo, nunca se enoja xdd</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-fire"></i>
+                    <div class="text">Emilio</div>
+                    <p>yo, el que tambien se emputa resto y es bien gamin xd</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="memes">
+        <div class="max-width">
+            <h1 class="title">memes que solo pillamos :v</h1>
+            <div class="features-content">
+                <div class="card" data-aos="fade-up">
+                    <i class="fas fa-comment-slash"></i>
+                    <div class="text">Jero toxiqueando</div>
+                    <p>cuando perdio y empieza el drama xd</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-fighter-jet"></i>
+                    <div class="text">Gabriel spameando</div>
+                    <p>chat lleno de copypasta :,vvv</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-moon"></i>
+                    <div class="text">Juan Alejandro gotico</div>
+                    <p>femboy mode on cachon xd</p>
+                </div>
+                <div class="card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-hand-peace"></i>
+                    <div class="text">Sami chill</div>
+                    <p>el unico amable mientras todos nos emputamos xdd</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="features" id="reglas">
+        <div class="max-width">
+            <h1 class="title">reglas del squad xd</h1>
+            <div class="rules">
+                <div class="rule" data-aos="fade-right">
+                    <p>1. el que pierde toxiquea primero (jero mirando xd)</p>
+                </div>
+                <div class="rule" data-aos="fade-left">
+                    <p>2. spamear permitido solo si es gabriel :,vvv</p>
+                </div>
+                <div class="rule" data-aos="fade-right">
+                    <p>3. juan alejandro no puede ser cachon en voz xd</p>
+                </div>
+                <div class="rule" data-aos="fade-left">
+                    <p>4. sami es el mas amable y nunca se enoja con nadie xdd</p>
+                </div>
+                <div class="rule" data-aos="fade-right">
+                    <p>5. emilio se emputa resto y es bien gamin xd</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <span>Los Papus • solo pa nosotros xd :v</span>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.12/typed.min.js"></script>
+    <script>
+        new Typed('.typing', {
+            strings: ['toxicos de roblox', 'que nos emputamos resto', 'squad cerrado xd', 'solo los papus'],
+            typeSpeed: 100,
+            backSpeed: 60,
+            loop: true
+        });
+        particlesJS('particles-js', {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: '#00d4ff' },
+                shape: { type: 'circle' },
+                opacity: { value: 0.5, random: true },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: '#00d4ff', opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 2, direction: 'none', random: false, straight: false, out_mode: 'out', bounce: false }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: { onhover: { enable: true, mode: 'repulse' }, onclick: { enable: true, mode: 'push' }, resize: true },
+                modes: { repulse: { distance: 100, duration: 0.4 }, push: { particles_nb: 4 } }
+            },
+            retina_detect: true
+        });
+        AOS.init({ duration: 1000 });
+        $(window).scroll(function(){
+            if(this.scrollY > 20) $('.navbar').addClass("sticky");
+            else $('.navbar').removeClass("sticky");
+            if(this.scrollY > 500) $('.scroll-up-btn').addClass("show");
+            else $('.scroll-up-btn').removeClass("show");
+        });
+        $('.scroll-up-btn').click(() => $('html').animate({scrollTop: 0}));
+        $('.menu-btn').click(() => $('.navbar .menu').toggleClass("active"));
+    </script>
+</body>
+</html>
